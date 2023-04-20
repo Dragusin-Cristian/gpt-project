@@ -1,0 +1,67 @@
+Let's assume a simple AFL flow that finds a random number between 2 and 5 has the following structure in xml:
+<flow>
+    <name>Generate random number</name>
+    <possibleResponses>
+    <opResponse id="f7f68ae6-59f3-4cba-b2d7-2cdb137cd487">
+      <annotation></annotation>
+      <name>success</name>
+      <isDefault>true</isDefault>
+      <onFailure>false</onFailure>
+      <type>RESOLVED</type>
+      <matchRules/>
+    </opResponse>
+    <opResponse id="c7f9f8f2-62f9-4878-ae3a-eb2a125ff76c">
+      <annotation></annotation>
+      <name>failure</name>
+      <isDefault>false</isDefault>
+      <onFailure>true</onFailure>
+      <type>ERROR</type>
+      <matchRules/>
+    </opResponse>
+  </possibleResponses>
+  <steps>
+    <step id="f2dea653-13ff-4b14-bac9-d804bb7fd9b4">
+        <annotation>Generates a random number</annotation>
+        <name>Generate Random Number</name>
+        <bindings>
+        <staticBinding id="aac0287a-3490-4225-babc-5e1d786b8526">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>min</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>2</value>
+          <record>false</record>
+        </staticBinding>
+        <staticBinding id="87cb1651-b437-40fb-83f7-fab35b0d2006">
+          <annotation></annotation>
+          <assignFromContext>false</assignFromContext>
+          <assignToContext>false</assignToContext>
+          <inputType>STRING</inputType>
+          <isList>false</isList>
+          <required>true</required>
+          <isPersisted>true</isPersisted>
+          <inputSymbol>max</inputSymbol>
+          <listDelimiter>,</listDelimiter>
+          <value>5</value>
+          <record>false</record>
+        </staticBinding>
+      </bindings>
+    </step>
+     <returnStep id="75ed3846-d85c-4fd9-9d29-fd54b276832d">
+      <annotation></annotation>
+      <name>Resolved : success</name>
+    </returnStep>
+     <returnStep id="b615ce62-bd01-452e-8f98-1f8554e1b080">
+      <annotation></annotation>
+      <name>Error : failure</name>
+    </returnStep>
+  </steps>
+</flow>
+
+Human: Make me a simple AFL flow that finds a random number between 1 and 10.
+AI:
